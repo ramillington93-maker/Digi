@@ -121,15 +121,15 @@ with tab_upload:
     if st.button("Load sample transcript"):
         try:
             with open("sample_transcript.vtt", "r", encoding="utf-8") as f:
-                st.session_state["pasted_text"] = f.read()
-            st.session_state["_loaded_sample"] = True
+                # Set the widget's own key before it's instantiated this run —
+                # this is the supported way to populate a text_area programmatically.
+                st.session_state["paste_area"] = f.read()
         except FileNotFoundError:
             st.error("sample_transcript.vtt not found in this folder.")
 
 with tab_paste:
     pasted = st.text_area(
         "Paste transcript text",
-        value=st.session_state.get("pasted_text", ""),
         height=280,
         key="paste_area",
         placeholder="Priya Nair: Okay, let's start...\nMarcus Chen: It's in review...",

@@ -128,7 +128,10 @@ def fill_slots(template: str, product: str, platform: str, tone: str, rng: rando
     emoji = rng.choice(EMOJI_BANK[tone]) if PLATFORM_ALLOWS_EMOJI[platform] else ""
     text = template.format(
         product=product, Product=product_cap,
-        benefit=benefit, pain=pain, audience=aud, emoji=emoji,
+        benefit=benefit, Benefit=benefit[:1].upper() + benefit[1:],
+        pain=pain, Pain=pain[:1].upper() + pain[1:],
+        audience=aud, Audience=aud[:1].upper() + aud[1:],
+        emoji=emoji,
     )
     # tidy any double spaces left by an empty emoji slot
     text = re.sub(r"\s{2,}", " ", text).strip()
