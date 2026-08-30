@@ -222,7 +222,8 @@ def call_llm(prompt: str, max_tokens: int = 400) -> str | None:
 # --------------------------------------------------------------------------
 
 WEAK_VERBS = {
-    "helped": "drove", "worked on": "delivered", "responsible for": "owned",
+    "helped with": "drove", "helped": "drove",
+    "worked on": "delivered", "responsible for": "owned",
     "assisted with": "supported", "was in charge of": "led",
     "did": "executed", "handled": "managed",
 }
@@ -233,8 +234,10 @@ HAS_NUMBER_RE = re.compile(r"\d")
 
 
 def strengthen_verb(bullet: str) -> str:
+    """Replace weak opener phrases with stronger verbs, longest phrase first
+    so e.g. 'helped with' isn't left as 'drove with' after 'helped' matches."""
     b = bullet
-    for weak, strong in WEAK_VERBS.items():
+    for weak, strong in sorted(WEAK_VERBS.items(), key=lambda kv: -len(kv[0])):
         b = re.sub(re.escape(weak), strong, b, flags=re.IGNORECASE)
     return b
 

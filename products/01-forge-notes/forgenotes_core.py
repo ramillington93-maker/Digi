@@ -62,6 +62,11 @@ DATE_REGEX = re.compile(
     re.IGNORECASE,
 )
 
+FILLER_START = re.compile(
+    r"^(sure|yes|no|okay|ok|great|perfect|good|agreed|absolutely|right|sounds good)\b[,.]?\s*",
+    re.IGNORECASE,
+)
+
 SPEAKER_LINE = re.compile(r"^\s*([A-Z][A-Za-z .'\-]{1,40}):\s*(.+)$")
 SENTENCE_SPLIT = re.compile(r"(?<=[.!?])\s+(?=[A-Z0-9\"'])")
 NAME_TOKEN = re.compile(r"\b([A-Z][a-z]+)\b")
@@ -206,6 +211,12 @@ def build_summary(sentence_pairs: list[tuple[str, str]], max_sentences: int = 5)
         # small bump for sentences that carry a decision or action signal
         if DECISION_KEYWORDS.search(sent) or ACTION_KEYWORDS.search(sent):
             score *= 1.25
+        # reward information-dense sentences (named things, numbers, dates)
+        entity_count = len(NAME_TOKEN.findall(sent[1:])) + len(re.findall(r"\d", sent))
+        score *= 1 + min(entity_count, 4) * 0.08
+        # penalize short reply fragments that lean on context ("Sure, I'll...")
+        if FILLER_START.match(sent):
+            score *= 0.5
         # skip very short filler sentences ("Bye everyone.")
         if len(toks) < 3:
             score *= 0.3
