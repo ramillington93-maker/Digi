@@ -1,0 +1,9 @@
+Habit ID,Habit Name,Category,Difficulty,Base XP,Frequency,Active,Created Date,Notes
+H001,Morning Run,Body,Medium,10,Daily,Yes,2026-01-05,5km loop weather permitting
+H002,Read 20 Pages,Mind,Easy,5,Daily,Yes,2026-01-05,Any book counts fiction included
+H003,Cold Shower,Body,Hard,20,Daily,Yes,2026-01-10,60 seconds minimum full body
+H004,No Phone After 10pm,Mind,Medium,10,Daily,Yes,2026-02-01,Phone charges in kitchen drawer
+H005,Practice Guitar,Craft,Medium,10,Daily,No,2026-01-05,Paused moved to weekends only
+H006,Wash Dishes Same Night,Chore,Easy,5,Daily,Yes,2026-01-12,No sink left overnight
+H007,Meal Prep Sunday,Chore,Hard,20,Weekly,Yes,2026-01-18,2 hours 5 meals for the week
+H008,Meditate 10 Min,Mind,Easy,5,Daily,Yes,2026-03-01,Timer only no app needed

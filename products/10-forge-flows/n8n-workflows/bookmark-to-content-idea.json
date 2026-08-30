@@ -1,0 +1,148 @@
+{
+  "name": "ForgeFlows - Bookmark to Content Idea",
+  "nodes": [
+    {
+      "parameters": {
+        "feedUrl": "https://REPLACE-WITH-YOUR-BOOKMARK-FEED.example.com/rss",
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        }
+      },
+      "id": "e5f6a7b8-0003-4000-8000-000000000001",
+      "name": "New Bookmark Trigger (RSS stub)",
+      "type": "n8n-nodes-base.rssFeedReadTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json[\"title\"] }}",
+              "operation": "isNotEmpty"
+            }
+          ]
+        }
+      },
+      "id": "e5f6a7b8-0003-4000-8000-000000000002",
+      "name": "Filter Valid Bookmarks",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        460,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "idea_title",
+              "value": "={{ $json[\"title\"] }}"
+            },
+            {
+              "name": "source_url",
+              "value": "={{ $json[\"link\"] }}"
+            },
+            {
+              "name": "captured_at",
+              "value": "={{ $now.toISO() }}"
+            },
+            {
+              "name": "status",
+              "value": "new"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "e5f6a7b8-0003-4000-8000-000000000003",
+      "name": "Format Content Idea Row",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        680,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "sheetId": "REPLACE_WITH_GOOGLE_SHEET_ID",
+        "range": "ContentIdeas!A:D",
+        "options": {}
+      },
+      "id": "e5f6a7b8-0003-4000-8000-000000000004",
+      "name": "Append Content Idea Row",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 3,
+      "position": [
+        900,
+        220
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "REPLACE_WITH_CREDENTIAL_ID",
+          "name": "Google Sheets account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "New Bookmark Trigger (RSS stub)": {
+      "main": [
+        [
+          {
+            "node": "Filter Valid Bookmarks",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Valid Bookmarks": {
+      "main": [
+        [
+          {
+            "node": "Format Content Idea Row",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Format Content Idea Row": {
+      "main": [
+        [
+          {
+            "node": "Append Content Idea Row",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {},
+  "versionId": "f6a7b8c9-0003-4000-8000-000000000001",
+  "id": "10003",
+  "tags": [
+    {
+      "name": "ForgeFlows"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+Category,Prompt Name,Prompt Text,Related Offer
+Offer Testing,Pain Point Digger,"I want to sell [service] to [target customer]. List 10 specific pain points this audience complains about online, phrased in their own words.",AI Resume Rewrite
+Offer Testing,Offer Sharpener,"Turn this rough idea into a one-sentence offer using the format 'I help [who] do [what] without [pain], in [timeframe]': [rough idea]",Custom GPT for Real Estate Agents
+Pricing,Price Anchor Finder,"I'm pricing [service] for [target customer]. List 3 comparable services or tools they already pay for, with rough prices, so I can anchor my price against them.",Cold Email Copy Service
+Pricing,Tier Builder,"Turn this single offer into a 3-tier pricing table (Basic/Standard/Premium) with one clear reason to upgrade at each tier: [offer description]",AI Onboarding Docs for SaaS
+Launch,Launch Tweet Thread,"Write a 5-tweet build-in-public thread announcing [product]. Tweet 1 is a hook about the problem, tweets 2-4 show progress or proof, tweet 5 has one clear CTA and link.",Notion AI Tracker Template
+Launch,Cold DM Opener,"Write 3 short cold DMs (under 40 words each) pitching [offer] to [target customer]. No hype words. End each with one specific question.",Custom GPT for Real Estate Agents
+Gumroad,Gumroad Blurb,"Write Gumroad sales copy for [product]: a title under 60 characters, a subtitle under 90 characters, a 100-word pitch, and 5 bullet points focused on outcomes, not features.",Notion AI Tracker Template
+Gumroad,FAQ Generator,"List the 6 most likely buyer objections for [product] priced at $[price], then answer each in 2 sentences or less, in a plain, non-salesy tone.",Notion AI Tracker Template
+Content,Hook Generator,"Write 8 short-form hooks (under 12 words each) about [topic] for [platform]. Mix curiosity, numbers, and contrarian angles. No emojis.",LinkedIn Ghostwriting (AI-assisted)
+Content,Proof Post,"Turn this result into a LinkedIn post: [result/metric]. Start with the number, explain what I did in 3 short sentences, end with a soft CTA.",LinkedIn Ghostwriting (AI-assisted)
+Experiment Design,Experiment Framer,"Turn this idea into a 7-day experiment: [idea]. Give me a hypothesis, one metric to track, and a clear pass/fail bar before I start.",Cold Email Copy Service
+Experiment Design,Kill Criteria,"I've run [experiment] for [X] days and gotten [result]. Should I keep going, pivot, or kill it? Give me a blunt answer with the reasoning in 3 bullets.",AI Meeting Notes Cleanup
+Client Delivery,Scope Tightener,"Turn this client request into a tight scope with 3 deliverables, 1 revision round, and a deadline: [client request]",AI Onboarding Docs for SaaS
+Client Delivery,Objection Handler,"A client said: '[objection]'. Write 2 short, non-defensive replies that address the concern and move the conversation toward a yes.",Custom GPT for Real Estate Agents
+Weekly Review,Weekly Numbers Summary,"Here's this week's revenue and content data: [paste rows]. Summarize in 4 sentences: what worked, what didn't, and one specific action for next week.",Notion AI Tracker Template

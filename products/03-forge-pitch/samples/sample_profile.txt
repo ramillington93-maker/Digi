@@ -1,0 +1,5 @@
+Name: Jamie Rivera
+Skills: Python, Django, REST APIs, PostgreSQL, database optimization
+Experience: 5 years building and maintaining backend APIs for early-stage startups
+Rate: $55/hr
+Portfolio: jamierivera.dev

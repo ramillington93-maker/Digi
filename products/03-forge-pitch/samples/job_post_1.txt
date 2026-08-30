@@ -1,0 +1,18 @@
+Backend developer needed to fix API bugs and add a new endpoint
+
+We run a small SaaS product built on Python (Django) with a PostgreSQL
+database. Over the last two months a few bugs have crept into our REST
+API -- pagination breaks on large result sets, and one endpoint times
+out under load. We also need a new endpoint added that exports user
+activity as CSV.
+
+Looking for someone comfortable with Django, REST APIs, and basic
+database optimization (indexes, query tuning). You'll need to read
+existing code, not just bolt on new features.
+
+Budget: $400-$800 for the full scope (bug fixes + new endpoint).
+Prefer someone who can start this week. We're not in a huge rush but
+would like this wrapped up within two weeks.
+
+Please include examples of API work you've done, ideally with Django
+or a similar framework.

@@ -1,0 +1,15 @@
+URGENT: Data entry + lead list cleanup, need this done ASAP
+
+We have a spreadsheet of about 2,000 leads pulled from a trade show
+and it's a mess -- duplicate rows, missing emails, inconsistent company
+name formatting. We need someone to clean this up in Google Sheets:
+dedupe, standardize company names, and flag any row missing an email
+or phone number.
+
+This is a quick turnaround job -- we need it back within 48 hours,
+ideally sooner. Should be straightforward for anyone comfortable with
+Excel or Google Sheets formulas and manual data entry. No coding
+required, just careful attention to detail.
+
+Budget: $150 fixed price for the full cleanup. Please confirm you can
+start today before applying -- we can't wait on this one.

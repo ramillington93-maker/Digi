@@ -1,0 +1,9 @@
+Log ID,Habit ID,Date,Completed,XP Earned,Streak Day,Time Logged,Notes
+L001,H001,2026-08-24,Yes,20,12,06:42,Legs sore but done
+L002,H002,2026-08-24,Yes,15,34,21:15,
+L003,H001,2026-08-25,Yes,20,13,06:38,
+L004,H003,2026-08-25,No,0,0,,Skipped overslept
+L005,H004,2026-08-25,Yes,13,3,22:58,
+L006,H002,2026-08-25,Yes,15,35,20:50,
+L007,H008,2026-08-26,Yes,6,1,07:10,Restarted after a break
+L008,H001,2026-08-26,Yes,20,14,06:40,

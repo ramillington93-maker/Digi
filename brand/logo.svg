@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="96" viewBox="0 0 360 96" role="img" aria-label="ForgeKit">
+  <defs>
+    <style>
+      .fk-bg { fill: #0B0F14; }
+      .fk-mark { fill: #F5B942; }
+      .fk-text { fill: #E8EEF4; font-family: 'Inter', 'Segoe UI', system-ui, sans-serif; font-weight: 700; }
+      .fk-sub { fill: #3DDC97; font-family: 'JetBrains Mono', 'Courier New', monospace; font-weight: 500; }
+    </style>
+  </defs>
+  <rect class="fk-bg" x="0" y="0" width="360" height="96" rx="12"/>
+  <!-- anvil / forge mark -->
+  <g transform="translate(18,24)">
+    <path class="fk-mark" d="M4 28 L4 34 L44 34 L44 40 L48 40 L48 30 L40 22 L28 22 L28 8 L20 8 L20 22 L10 22 Z"/>
+    <rect class="fk-mark" x="20" y="0" width="8" height="8"/>
+    <rect class="fk-mark" x="6" y="36" width="10" height="6" rx="1"/>
+    <rect class="fk-mark" x="32" y="36" width="10" height="6" rx="1"/>
+  </g>
+  <text class="fk-text" x="80" y="46" font-size="30">ForgeKit</text>
+  <text class="fk-sub" x="80" y="66" font-size="13">Ship today. Cash tomorrow.</text>
+</svg>

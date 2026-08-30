@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Which Digital Product Should You Sell This Week? — Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --fk-bg: #0B0F14;
+    --fk-surface: #141B24;
+    --fk-surface-2: #1B2430;
+    --fk-text: #E8EEF4;
+    --fk-text-muted: #9BA8B4;
+    --fk-accent: #F5B942;
+    --fk-success: #3DDC97;
+    --fk-border: #26313F;
+    --fk-font-ui: 'Inter', system-ui, -apple-system, sans-serif;
+    --fk-font-mono: 'JetBrains Mono', 'Courier New', monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--fk-bg);
+    color: var(--fk-text);
+    font-family: var(--fk-font-ui);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px 48px;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 640px;
+  }
+
+  header.top {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .brand-tag {
+    display: inline-block;
+    font-family: var(--fk-font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--fk-accent);
+    border: 1px solid var(--fk-border);
+    background: var(--fk-surface);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 14px;
+  }
+
+  h1 {
+    font-size: clamp(22px, 5vw, 30px);
+    line-height: 1.25;
+    margin: 0 0 8px;
+    font-weight: 800;
+  }
+
+  .subhead {
+    color: var(--fk-text-muted);
+    font-size: 15px;
+    margin: 0;
+  }
+
+  .card {
+    background: var(--fk-surface);
+    border: 1px solid var(--fk-border);
+    border-radius: 14px;
+    padding: 20px;
+    margin-top: 20px;
+  }
+
+  /* Progress bar */
+  .progress-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    font-family: var(--fk-font-mono);
+    font-size: 13px;
+    color: var(--fk-text-muted);
+  }
+
+  .progress-track {
+    background: var(--fk-surface-2);
+    border-radius: 999px;
+    height: 8px;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 18px;
+  }
+
+  .progress-fill {
+    background: var(--fk-accent);
+    height: 100%;
+    width: 0%;
+    border-radius: 999px;
+    transition: width 0.25s ease;
+  }
+
+  .q-text {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 16px;
+    line-height: 1.35;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .option-btn {
+    width: 100%;
+    text-align: left;
+    background: var(--fk-surface-2);
+    border: 1px solid var(--fk-border);
+    color: var(--fk-text);
+    font-family: var(--fk-font-ui);
+    font-size: 15px;
+    padding: 14px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+  }
+
+  .option-btn:hover {
+    border-color: var(--fk-accent);
+    background: #212C3A;
+  }
+
+  .option-btn:active {
+    transform: scale(0.99);
+  }
+
+  .option-btn:focus-visible {
+    outline: 2px solid var(--fk-accent);
+    outline-offset: 2px;
+  }
+
+  .nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 18px;
+  }
+
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid var(--fk-border);
+    color: var(--fk-text-muted);
+    font-family: var(--fk-font-ui);
+    font-size: 14px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .btn-ghost:hover { color: var(--fk-text); border-color: var(--fk-text-muted); }
+  .btn-ghost:disabled { opacity: 0.35; cursor: not-allowed; }
+
+  .btn-primary {
+    background: var(--fk-accent);
+    border: 1px solid var(--fk-accent);
+    color: #0B0F14;
+    font-family: var(--fk-font-ui);
+    font-weight: 700;
+    font-size: 15px;
+    padding: 14px 22px;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 100%;
+  }
+
+  .btn-primary:hover { filter: brightness(1.05); }
+  .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* Result screen */
+  .result-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--fk-success);
+    color: #0B0F14;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 800;
+    margin: 0 auto 14px;
+  }
+
+  .result-kicker {
+    text-align: center;
+    font-family: var(--fk-font-mono);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--fk-success);
+    margin-bottom: 6px;
+  }
+
+  .result-title {
+    text-align: center;
+    font-size: clamp(20px, 5vw, 26px);
+    font-weight: 800;
+    margin: 0 0 10px;
+  }
+
+  .result-desc {
+    text-align: center;
+    color: var(--fk-text-muted);
+    font-size: 15px;
+    line-height: 1.5;
+    margin: 0 0 18px;
+  }
+
+  .result-list {
+    background: var(--fk-surface-2);
+    border: 1px solid var(--fk-border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 18px;
+  }
+
+  .result-list h3 {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--fk-accent);
+    margin: 0 0 10px;
+    font-family: var(--fk-font-mono);
+  }
+
+  .result-list ul {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--fk-text);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--fk-border);
+    margin: 20px 0;
+  }
+
+  .capture-label {
+    display: block;
+    font-size: 13px;
+    color: var(--fk-text-muted);
+    margin-bottom: 8px;
+  }
+
+  .capture-row {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  input[type="email"] {
+    width: 100%;
+    background: var(--fk-bg);
+    border: 1px solid var(--fk-border);
+    color: var(--fk-text);
+    font-family: var(--fk-font-ui);
+    font-size: 15px;
+    padding: 13px 14px;
+    border-radius: 10px;
+  }
+
+  input[type="email"]:focus {
+    outline: none;
+    border-color: var(--fk-accent);
+  }
+
+  .fine-print {
+    font-size: 12px;
+    color: var(--fk-text-muted);
+    text-align: center;
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+
+  .success-box {
+    display: none;
+    background: rgba(61, 220, 151, 0.08);
+    border: 1px solid var(--fk-success);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-top: 14px;
+    font-size: 14px;
+    color: var(--fk-success);
+    text-align: center;
+  }
+
+  .success-box.visible { display: block; }
+
+  .restart-row {
+    text-align: center;
+    margin-top: 18px;
+  }
+
+  .link-btn {
+    background: none;
+    border: none;
+    color: var(--fk-text-muted);
+    font-family: var(--fk-font-ui);
+    font-size: 13px;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 6px;
+  }
+
+  .link-btn:hover { color: var(--fk-text); }
+
+  footer.credit {
+    margin-top: 28px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--fk-text-muted);
+  }
+
+  footer.credit a {
+    color: var(--fk-text-muted);
+  }
+
+  [hidden] { display: none !important; }
+
+  @media (min-width: 480px) {
+    .capture-row { flex-direction: row; }
+    input[type="email"] { flex: 1; }
+    .capture-row .btn-primary { width: auto; white-space: nowrap; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <span class="brand-tag">ForgeQuiz · ForgeKit</span>
+    <h1 id="page-title">Which digital product should you sell this week?</h1>
+    <p class="subhead">7 quick questions. Get a specific product idea, not generic advice.</p>
+  </header>
+
+  <!-- QUIZ SCREEN -->
+  <main class="card" id="quiz-screen">
+    <div class="progress-row">
+      <span id="progress-label">Question 1 of 7</span>
+      <span id="progress-pct">14%</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress-fill"></div>
+    </div>
+
+    <p class="q-text" id="question-text">Loading question...</p>
+    <div class="options" id="options-container"></div>
+
+    <div class="nav-row">
+      <button class="btn-ghost" id="back-btn" type="button">Back</button>
+      <span></span>
+    </div>
+  </main>
+
+  <!-- RESULT SCREEN -->
+  <main class="card" id="result-screen" hidden>
+    <div class="result-icon">&#10003;</div>
+    <p class="result-kicker" id="result-kicker">Your result</p>
+    <h2 class="result-title" id="result-title">Result title</h2>
+    <p class="result-desc" id="result-desc">Result description.</p>
+
+    <div class="result-list">
+      <h3>Do this next</h3>
+      <ul id="result-steps"></ul>
+    </div>
+
+    <hr class="divider">
+
+    <label class="capture-label" for="email-input">Get your result as a saved file (works offline, no account needed):</label>
+    <form id="capture-form">
+      <div class="capture-row">
+        <input type="email" id="email-input" placeholder="you@email.com" required>
+        <button class="btn-primary" type="submit" id="submit-btn">Download my result</button>
+      </div>
+    </form>
+    <p class="fine-print">This demo saves your result to a file on your own device. No data leaves your browser. See README.md to connect a real email list.</p>
+
+    <div class="success-box" id="success-box">Saved. Check your downloads folder for your result file.</div>
+
+    <div class="restart-row">
+      <button class="link-btn" id="restart-btn" type="button">Retake the quiz</button>
+    </div>
+  </main>
+
+  <footer class="credit">
+    <p>A ForgeKit product by Orynix Technologies</p>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---------------------------------------------------------------------
+  // QUIZ DATA
+  // To change the niche or copy, edit this block. See QUIZ-COPY.md for
+  // a plain-language map of every question, option, and result.
+  // Each option has a "bucket" of A, B, or C. Whichever bucket gets the
+  // most answers decides which result the user sees.
+  // ---------------------------------------------------------------------
+  var QUIZ_TITLE = "Which digital product should you sell this week?";
+
+  var QUESTIONS = [
+    {
+      text: "How much time can you put in this week?",
+      options: [
+        { label: "Under 2 hours", bucket: "A" },
+        { label: "A few evenings", bucket: "B" },
+        { label: "A full weekend or more", bucket: "C" }
+      ]
+    },
+    {
+      text: "What do you already have finished or half-finished?",
+      options: [
+        { label: "Notes, docs, or a spreadsheet template", bucket: "A" },
+        { label: "A skill people ask me to teach", bucket: "B" },
+        { label: "Code, a script, or a working tool", bucket: "C" }
+      ]
+    },
+    {
+      text: "Where do you want to sell?",
+      options: [
+        { label: "Gumroad or a simple storefront", bucket: "A" },
+        { label: "A cohort, community, or DMs", bucket: "B" },
+        { label: "Wherever developers hang out", bucket: "C" }
+      ]
+    },
+    {
+      text: "What's your comfort level with code?",
+      options: [
+        { label: "None, and I don't want any", bucket: "A" },
+        { label: "I can follow instructions and copy-paste", bucket: "B" },
+        { label: "I write code regularly", bucket: "C" }
+      ]
+    },
+    {
+      text: "What price point sounds right to start?",
+      options: [
+        { label: "$9-$29, low friction, high volume", bucket: "A" },
+        { label: "$49-$199, coaching or cohort-priced", bucket: "B" },
+        { label: "$19-$79, tool-priced for other builders", bucket: "C" }
+      ]
+    },
+    {
+      text: "What's your biggest asset right now?",
+      options: [
+        { label: "A messy pile of knowledge I haven't organized", bucket: "A" },
+        { label: "An audience or a network that trusts me", bucket: "B" },
+        { label: "A tool or script that already saves time", bucket: "C" }
+      ]
+    },
+    {
+      text: "What does \"done\" look like for you this week?",
+      options: [
+        { label: "One file or template someone can buy today", bucket: "A" },
+        { label: "One paid session or short course booked", bucket: "B" },
+        { label: "One tool live and listed for sale", bucket: "C" }
+      ]
+    }
+  ];
+
+  // ---------------------------------------------------------------------
+  // RESULTS
+  // One entry per bucket (A, B, C). Edit title/desc/steps to change copy.
+  // ---------------------------------------------------------------------
+  var RESULTS = {
+    A: {
+      kicker: "Your result: The Template Seller",
+      title: "Sell a template or notion/spreadsheet kit",
+      desc: "You've got scattered knowledge and limited hours. Package what you already know into one file. No code, no calls, no inventory.",
+      steps: [
+        "Pick ONE process you already do well (budget tracker, content calendar, onboarding doc).",
+        "Turn it into a clean template file today: Notion, Sheets, or a PDF.",
+        "List it on Gumroad at $9-$29. Write the price and setup time on the sales page.",
+        "Post one before/after screenshot where your audience already hangs out."
+      ]
+    },
+    B: {
+      kicker: "Your result: The Knowledge Seller",
+      title: "Sell a short paid session or mini-course",
+      desc: "People already ask you questions. Stop answering for free. Package the answer once, sell it on repeat.",
+      steps: [
+        "Write down the 5 questions people ask you most.",
+        "Turn the best one into a 45-minute paid session or a 20-minute recorded lesson.",
+        "Price it at $49-$199. State exactly what they walk away with.",
+        "Offer it to the next 3 people who ask you that question for free."
+      ]
+    },
+    C: {
+      kicker: "Your result: The Tool Builder",
+      title: "Sell a small tool other builders will pay for",
+      desc: "You can write code and you already have something working. Wrap it, price it, ship it — don't rebuild it from scratch.",
+      steps: [
+        "Take the script or tool you already have and cut it down to one clear use case.",
+        "Add a simple UI or README so a non-technical buyer can use it in under 5 minutes.",
+        "Price it at $19-$79 and list it where developers or indie builders browse.",
+        "Ship the first version this week, even if it only does one thing well."
+      ]
+    }
+  };
+
+  // ---------------------------------------------------------------------
+  // STATE
+  // ---------------------------------------------------------------------
+  var currentIndex = 0;
+  var answers = []; // bucket string per question, index-aligned
+
+  // ---------------------------------------------------------------------
+  // ELEMENTS
+  // ---------------------------------------------------------------------
+  var pageTitleEl = document.getElementById("page-title");
+  var quizScreen = document.getElementById("quiz-screen");
+  var resultScreen = document.getElementById("result-screen");
+  var progressLabel = document.getElementById("progress-label");
+  var progressPct = document.getElementById("progress-pct");
+  var progressFill = document.getElementById("progress-fill");
+  var questionText = document.getElementById("question-text");
+  var optionsContainer = document.getElementById("options-container");
+  var backBtn = document.getElementById("back-btn");
+
+  var resultKicker = document.getElementById("result-kicker");
+  var resultTitle = document.getElementById("result-title");
+  var resultDesc = document.getElementById("result-desc");
+  var resultSteps = document.getElementById("result-steps");
+
+  var captureForm = document.getElementById("capture-form");
+  var emailInput = document.getElementById("email-input");
+  var successBox = document.getElementById("success-box");
+  var restartBtn = document.getElementById("restart-btn");
+
+  pageTitleEl.textContent = QUIZ_TITLE;
+  document.title = QUIZ_TITLE + " — Quiz";
+
+  // ---------------------------------------------------------------------
+  // RENDER QUESTION
+  // ---------------------------------------------------------------------
+  function renderQuestion() {
+    var q = QUESTIONS[currentIndex];
+    var total = QUESTIONS.length;
+    var num = currentIndex + 1;
+
+    progressLabel.textContent = "Question " + num + " of " + total;
+    progressPct.textContent = Math.round((num / total) * 100) + "%";
+    progressFill.style.width = Math.round((num / total) * 100) + "%";
+
+    questionText.textContent = q.text;
+    optionsContainer.innerHTML = "";
+
+    q.options.forEach(function (opt) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "option-btn";
+      btn.textContent = opt.label;
+      btn.addEventListener("click", function () {
+        selectAnswer(opt.bucket);
+      });
+      optionsContainer.appendChild(btn);
+    });
+
+    backBtn.disabled = currentIndex === 0;
+  }
+
+  function selectAnswer(bucket) {
+    answers[currentIndex] = bucket;
+    if (currentIndex < QUESTIONS.length - 1) {
+      currentIndex++;
+      renderQuestion();
+    } else {
+      showResult();
+    }
+  }
+
+  backBtn.addEventListener("click", function () {
+    if (currentIndex > 0) {
+      currentIndex--;
+      renderQuestion();
+    }
+  });
+
+  // ---------------------------------------------------------------------
+  // SCORE + RESULT
+  // ---------------------------------------------------------------------
+  function computeBucket() {
+    var counts = { A: 0, B: 0, C: 0 };
+    answers.forEach(function (b) {
+      if (counts.hasOwnProperty(b)) counts[b]++;
+    });
+    var winner = "A";
+    var best = -1;
+    ["A", "B", "C"].forEach(function (key) {
+      if (counts[key] > best) {
+        best = counts[key];
+        winner = key;
+      }
+    });
+    return winner;
+  }
+
+  var lastResultKey = null;
+
+  function showResult() {
+    var key = computeBucket();
+    lastResultKey = key;
+    var r = RESULTS[key];
+
+    resultKicker.textContent = r.kicker;
+    resultTitle.textContent = r.title;
+    resultDesc.textContent = r.desc;
+    resultSteps.innerHTML = "";
+    r.steps.forEach(function (step) {
+      var li = document.createElement("li");
+      li.textContent = step;
+      resultSteps.appendChild(li);
+    });
+
+    quizScreen.hidden = true;
+    resultScreen.hidden = false;
+    successBox.classList.remove("visible");
+    emailInput.value = "";
+    window.scrollTo(0, 0);
+  }
+
+  // ---------------------------------------------------------------------
+  // EMAIL CAPTURE -> DOWNLOADABLE RESULT FILE (Blob + object URL)
+  // No backend. This runs entirely in the browser. To wire this up to a
+  // real email list later (ConvertKit, Mailchimp, etc.), see README.md.
+  // ---------------------------------------------------------------------
+  captureForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var email = emailInput.value.trim();
+    if (!email) return;
+
+    var key = lastResultKey || computeBucket();
+    var r = RESULTS[key];
+    var today = new Date().toISOString().slice(0, 10);
+
+    var lines = [];
+    lines.push(QUIZ_TITLE);
+    lines.push("=".repeat(QUIZ_TITLE.length));
+    lines.push("");
+    lines.push("Date: " + today);
+    lines.push("Prepared for: " + email);
+    lines.push("");
+    lines.push(r.kicker);
+    lines.push(r.title);
+    lines.push("");
+    lines.push(r.desc);
+    lines.push("");
+    lines.push("Do this next:");
+    r.steps.forEach(function (step, i) {
+      lines.push((i + 1) + ". " + step);
+    });
+    lines.push("");
+    lines.push("-- ");
+    lines.push("A ForgeKit product by Orynix Technologies");
+
+    var content = lines.join("\n");
+    var blob = new Blob([content], { type: "text/plain" });
+    var url = URL.createObjectURL(blob);
+
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "quiz-result-" + key.toLowerCase() + ".txt";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    // Release the object URL shortly after the download is triggered.
+    setTimeout(function () {
+      URL.revokeObjectURL(url);
+    }, 2000);
+
+    successBox.classList.add("visible");
+  });
+
+  // ---------------------------------------------------------------------
+  // RESTART
+  // ---------------------------------------------------------------------
+  restartBtn.addEventListener("click", function () {
+    currentIndex = 0;
+    answers = [];
+    lastResultKey = null;
+    resultScreen.hidden = true;
+    quizScreen.hidden = false;
+    renderQuestion();
+    window.scrollTo(0, 0);
+  });
+
+  // ---------------------------------------------------------------------
+  // INIT
+  // ---------------------------------------------------------------------
+  renderQuestion();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+# ForgeKit dark theme -- copied from brand/streamlit-theme.toml
+[theme]
+base = "dark"
+backgroundColor = "#0B0F14"
+secondaryBackgroundColor = "#141B24"
+primaryColor = "#F5B942"
+textColor = "#E8EEF4"
+font = "sans serif"

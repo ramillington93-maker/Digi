@@ -1,0 +1,89 @@
+WEBVTT
+
+1
+00:00:03.000 --> 00:00:14.000
+Priya Nair: Okay, let's start. This is the weekly sync for the Q3 onboarding redesign. On the call we have me, Marcus, Devon, and Sarah from support.
+
+2
+00:00:14.500 --> 00:00:29.000
+Priya Nair: First item, the new user checklist. Marcus, where are we on the checklist component?
+
+3
+00:00:29.500 --> 00:00:48.000
+Marcus Chen: It's in review. The design is done and I agreed with Devon that we ship it behind a feature flag first. We decided to roll it out to 10% of new signups starting next Monday instead of 100%, so we can watch error rates.
+
+4
+00:00:48.500 --> 00:01:05.000
+Priya Nair: Good, that's safer. Marcus, can you own the feature flag rollout? I need that done by September 5th.
+
+5
+00:01:05.500 --> 00:01:12.000
+Marcus Chen: Yes, I'll own the rollout. I will have the flag configured and the 10% cohort live by September 5th.
+
+6
+00:01:12.500 --> 00:01:31.000
+Devon Ruiz: On my side, the onboarding emails are still blocked on copy. Sarah, do you have the final subject lines from support feedback?
+
+7
+00:01:31.500 --> 00:01:47.000
+Sarah Kim: Almost. I'm compiling the top five complaints from last month's tickets. I will send the subject line doc to Devon by Wednesday, September 3rd.
+
+8
+00:01:47.500 --> 00:02:02.000
+Devon Ruiz: Perfect. Once I have that, I will finalize the email sequence and send it to Priya for approval by September 8th.
+
+9
+00:02:02.500 --> 00:02:20.000
+Priya Nair: Great. Second item. We agreed last week to cut the onboarding survey from seven questions down to three. Did we finalize which three?
+
+10
+00:02:20.500 --> 00:02:38.000
+Marcus Chen: Yes, we decided on: how did you hear about us, what's your primary use case, and company size. We dropped the NPS question from onboarding entirely and moved it to day 30 instead.
+
+11
+00:02:38.500 --> 00:02:50.000
+Priya Nair: Agreed, that's final. Devon, can you update the survey config and remove the old questions by Friday?
+
+12
+00:02:50.500 --> 00:03:00.000
+Devon Ruiz: Sure, I'll have the survey updated by Friday, September 5th.
+
+13
+00:03:00.500 --> 00:03:18.000
+Sarah Kim: One more thing from support. We're seeing a spike in tickets about the password reset flow timing out. It's not part of this project but it's urgent. Fourteen tickets this week alone.
+
+14
+00:03:18.500 --> 00:03:34.000
+Priya Nair: That sounds like a bug, not onboarding scope. Let's flag it. Marcus, can you file a ticket with the platform team today and loop in Sarah?
+
+15
+00:03:34.500 --> 00:03:40.000
+Marcus Chen: Will do, I'll file that today and copy Sarah on it.
+
+16
+00:03:40.500 --> 00:03:58.000
+Priya Nair: Okay, last item. Budget. We agreed to hold off on paid user research until Q4. We will not spend the $4,000 research budget this quarter. That's confirmed.
+
+17
+00:03:58.500 --> 00:04:15.000
+Priya Nair: Risk to flag: if Sarah's subject line doc slips past Wednesday, the email sequence deadline of September 8th is at risk too, since Devon is blocked on it.
+
+18
+00:04:15.500 --> 00:04:30.000
+Devon Ruiz: Agreed, that's the critical path. I'll ping Sarah on Tuesday if I haven't seen it yet.
+
+19
+00:04:30.500 --> 00:04:45.000
+Priya Nair: Sounds good. To summarize: Marcus owns the feature flag rollout by September 5th and the platform bug ticket today. Devon owns the survey config by September 5th and the email sequence by September 8th, pending Sarah's copy. Sarah owns the subject line doc by September 3rd.
+
+20
+00:04:45.500 --> 00:04:58.000
+Priya Nair: We decided to hold research spend until Q4, and we decided to launch the checklist at 10% first, not 100%. Next sync same time next week. Thanks everyone.
+
+21
+00:04:58.500 --> 00:05:05.000
+Marcus Chen: Sounds good, thanks all.
+
+22
+00:05:05.500 --> 00:05:08.000
+Sarah Kim: Bye everyone.
