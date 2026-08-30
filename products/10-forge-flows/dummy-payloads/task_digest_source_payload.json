@@ -1,0 +1,40 @@
+{
+  "results": [
+    {
+      "id": "task-001",
+      "properties": {
+        "Name": {
+          "title": [
+            { "plain_text": "Reply to ForgeFlows refund question" }
+          ]
+        },
+        "Status": { "select": { "name": "To Do" } },
+        "Due": { "date": { "start": "2026-08-30" } }
+      }
+    },
+    {
+      "id": "task-002",
+      "properties": {
+        "Name": {
+          "title": [
+            { "plain_text": "Record 20-second demo for ForgeFlows" }
+          ]
+        },
+        "Status": { "select": { "name": "In Progress" } },
+        "Due": { "date": { "start": "2026-08-30" } }
+      }
+    },
+    {
+      "id": "task-003",
+      "properties": {
+        "Name": {
+          "title": [
+            { "plain_text": "Publish daily content idea from bookmarks" }
+          ]
+        },
+        "Status": { "select": { "name": "To Do" } },
+        "Due": { "date": { "start": "2026-08-31" } }
+      }
+    }
+  ]
+}

@@ -223,8 +223,10 @@ def build_summary(sentence_pairs: list[tuple[str, str]], max_sentences: int = 5)
 def extract_decisions(sentence_pairs: list[tuple[str, str]]) -> list[str]:
     decisions = []
     for _, sent in sentence_pairs:
+        cleaned = sent.strip()
+        if cleaned.endswith("?"):
+            continue  # questions aren't decisions, even if they contain "final"/"decide"
         if DECISION_KEYWORDS.search(sent):
-            cleaned = sent.strip()
             if cleaned not in decisions:
                 decisions.append(cleaned)
     return decisions
@@ -250,7 +252,13 @@ def _find_owner(sent: str, speaker: str, known_names: list[str]) -> str:
         first = name.split()[0]
         if re.search(rf"\b{re.escape(first)}\b", sent):
             return name
-    return speaker if speaker != "Unknown" else "Unassigned"
+    if speaker != "Unknown":
+        return speaker
+    # No speaker labels at all (plain pasted text) — look for "Name will ..." patterns.
+    name_will = re.search(r"\b([A-Z][a-z]+)\s+will\b", sent)
+    if name_will:
+        return name_will.group(1)
+    return "Unassigned"
 
 
 def extract_action_items(
@@ -259,6 +267,9 @@ def extract_action_items(
     items: list[ActionItem] = []
     seen_tasks = set()
     for speaker, sent in sentence_pairs:
+        cleaned_sent = sent.strip()
+        if cleaned_sent.endswith("?"):
+            continue  # a question assigning work reads oddly as a task; the commitment reply catches it
         if not ACTION_KEYWORDS.search(sent):
             continue
         due_match = DATE_REGEX.search(sent)

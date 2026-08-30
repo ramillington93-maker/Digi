@@ -199,8 +199,15 @@ def _guess_title(text: str) -> str:
 
 
 def _hook_sentence(text: str) -> str:
-    """Grab the first substantial sentence to reference specifically."""
-    body = re.sub(r"\s+", " ", text).strip()
+    """Grab the first substantial sentence to reference specifically.
+
+    Skips the title line itself (the first line of the post, which
+    usually has no trailing punctuation and would otherwise bleed into
+    the next sentence when whitespace is collapsed).
+    """
+    lines = [ln.strip() for ln in text.strip().splitlines() if ln.strip()]
+    rest = lines[1:] if len(lines) > 1 else lines
+    body = re.sub(r"\s+", " ", " ".join(rest)).strip()
     sentences = re.split(r"(?<=[.!?])\s+", body)
     for s in sentences:
         s = s.strip()
@@ -245,14 +252,16 @@ def _shared_skills(job: JobSignals, profile: Profile) -> list[str]:
             if term in ps or ps in term:
                 shared.append(term)
                 break
-    # De-dupe, preserve order.
+    # De-dupe, preserve order. Only real overlap -- no fallback to the
+    # job's keywords alone, otherwise the proposal would claim skills
+    # the freelancer never listed.
     seen = set()
     out = []
     for s in shared:
         if s not in seen:
             seen.add(s)
             out.append(s)
-    return out or job.matched_skills[:3]
+    return out
 
 
 def _rate_number(profile: Profile) -> float | None:
@@ -337,7 +346,8 @@ def build_ps_line(job: JobSignals, profile: Profile) -> str:
 
 
 def _opening_hook(job: JobSignals, profile: Profile, shared: list[str]) -> str:
-    skill_phrase = shared[0] if shared else job.niche
+    profile_skills = _skills_list(profile)
+    skill_phrase = shared[0] if shared else (profile_skills[0] if profile_skills else job.niche)
     first_name = profile.name.split()[0] if profile.name else None
     lane_owner = f"{first_name}'s" if first_name else "my"
     return (
@@ -348,11 +358,17 @@ def _opening_hook(job: JobSignals, profile: Profile, shared: list[str]) -> str:
 
 
 def _relevant_experience(profile: Profile, job: JobSignals, shared: list[str]) -> str:
-    exp = profile.experience or "several years doing this kind of work"
-    skills_text = ", ".join(shared[:4]) if shared else (profile.skills or "the core skills this needs")
+    exp = profile.experience or "Several years doing this kind of work"
+    if shared:
+        skills_text = ", ".join(shared[:4])
+        return (
+            f"{exp}. Recent work covers {skills_text}, which lines up with "
+            f"what you listed in the post ({job.niche})."
+        )
+    skills_text = profile.skills or "a mix of hands-on project work"
     return (
-        f"{profile.experience and exp or exp}. Recent work covers {skills_text}, which lines up with "
-        f"what you listed in the post ({job.niche})."
+        f"{exp}. My core skills are {skills_text}, and this {job.niche} project "
+        f"is close enough to what I already do that ramp-up time is close to zero."
     )
 
 

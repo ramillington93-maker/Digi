@@ -1,0 +1,34 @@
+Job Title: Senior Backend Engineer
+Company: Ledgerway Fintech
+
+About the role:
+Ledgerway is looking for a Senior Backend Engineer to design and scale the
+services behind our payments platform. You'll work primarily in Python,
+own service architecture decisions, and mentor junior engineers.
+
+Responsibilities:
+- Design and build scalable REST and GraphQL APIs in Python.
+- Own PostgreSQL schema design and query performance for high-throughput
+  payment services.
+- Deploy and manage services in Docker and Kubernetes on AWS.
+- Build and maintain CI/CD pipelines to automate testing and deployment.
+- Write thorough unit and integration tests using pytest.
+- Implement caching with Redis to reduce database load.
+- Monitor production systems using Datadog and respond to incidents.
+- Participate in system design reviews and document architecture decisions.
+- Mentor junior engineers through code review and pairing.
+- Collaborate with product managers to scope technical requirements.
+
+Requirements:
+- 5+ years of backend engineering experience, primarily in Python.
+- Strong experience with PostgreSQL, Docker, and Kubernetes.
+- Experience with AWS infrastructure and CI/CD pipelines.
+- Solid understanding of REST API design and testing with pytest.
+- Experience with Redis or another caching layer.
+- Comfortable mentoring junior engineers and leading code reviews.
+- Bachelor's degree in Computer Science or equivalent experience.
+
+Nice to have:
+- Experience with GraphQL.
+- Experience in fintech or payments.
+- Familiarity with Datadog or similar monitoring tools.

@@ -1,0 +1,205 @@
+{
+  "_readme": "20 real caption/hook style patterns spanning X, Instagram, LinkedIn, and TikTok across bold/friendly/professional/funny tones. {product}/{Product} = user's product description, {benefit}/{pain}/{audience}/{emoji} are filled from tone-matched word banks in generator.py. This file is the core data the template engine matches against platform + tone before filling slots.",
+  "styles": [
+    {
+      "id": "x-bold-1",
+      "platform": "X",
+      "tone": "bold",
+      "hook": "Stop scrolling. {Product} just made your {pain} someone else's problem.",
+      "caption": "{Product} exists because {pain} was costing people money. Not tips. Not vibes. A fix. If you're still doing this by hand in 2026, that's a choice.",
+      "cta": "Get it before the price goes up: link in bio.",
+      "hashtags": ["#{ProductTag}", "#BuildInPublic"],
+      "first_comment": "Dropping the link below before I change my mind about the price."
+    },
+    {
+      "id": "x-professional-1",
+      "platform": "X",
+      "tone": "professional",
+      "hook": "Most teams lose hours to {pain}. {Product} closes that gap.",
+      "caption": "We built {product} after watching {audience} solve the same problem manually every week. It does the repeatable part so you can do the part that needs a human.",
+      "cta": "Details and pricing: link below.",
+      "hashtags": ["#{ProductTag}", "#ProductivityTools"],
+      "first_comment": "Happy to answer setup questions in the replies."
+    },
+    {
+      "id": "x-funny-1",
+      "platform": "X",
+      "tone": "funny",
+      "hook": "Me, before {product}: {pain}. Me, after: a person with a functioning calendar.",
+      "caption": "I did not build {product} because I am organized. I built it because I am not, and pretending otherwise was expensive.",
+      "cta": "It's cheaper than therapy: link in bio.",
+      "hashtags": ["#{ProductTag}", "#IndieHacker"],
+      "first_comment": "No, it does not fold your laundry too. I checked."
+    },
+    {
+      "id": "x-friendly-1",
+      "platform": "X",
+      "tone": "friendly",
+      "hook": "If {pain} is eating your week, I made something for you.",
+      "caption": "{Product} is small on purpose. One job, done well: it turns {pain} into {benefit}. That's the whole pitch.",
+      "cta": "Try it this week: link below.",
+      "hashtags": ["#{ProductTag}", "#SmallBiz"],
+      "first_comment": "Reply here if you want the honest pros and cons before you buy."
+    },
+    {
+      "id": "x-bold-2",
+      "platform": "X",
+      "tone": "bold",
+      "hook": "{pain} is not a personality trait. Fix it today.",
+      "caption": "{Product} replaces the spreadsheet, the sticky notes, and the 11pm panic. One tool. {benefit}. No subscription trap.",
+      "cta": "Own it once, use it forever: link in bio.",
+      "hashtags": ["#{ProductTag}", "#NoSubscriptions"],
+      "first_comment": "One-time price. I hate subscriptions as much as you do."
+    },
+    {
+      "id": "ig-bold-1",
+      "platform": "Instagram",
+      "tone": "bold",
+      "hook": "{emoji} You don't need more hustle. You need {product}.",
+      "caption": "Here's the truth nobody tells you: {pain} isn't a discipline problem, it's a tools problem. {Product} gives {audience} {benefit} without the burnout. I built this for people who are done guessing. {emoji}",
+      "cta": "Tap the link in bio and start today.",
+      "hashtags": ["#{ProductTag}", "#SmallBusinessOwner", "#ContentCreator"],
+      "first_comment": "Link is in my bio — drop a 🔥 if you want the discount code."
+    },
+    {
+      "id": "ig-friendly-1",
+      "platform": "Instagram",
+      "tone": "friendly",
+      "hook": "{emoji} Okay, this one's for anyone tired of {pain}.",
+      "caption": "I kept hearing the same thing from {audience}: {pain} was eating their whole week. So I made {product}. It's simple, it's honest, and it gives you {benefit} without a 40-page manual. {emoji}",
+      "cta": "Save this post and grab it from the link in bio.",
+      "hashtags": ["#{ProductTag}", "#SmallBusinessSupport", "#CreatorTools"],
+      "first_comment": "Comment \"SEND\" and I'll DM you the link!"
+    },
+    {
+      "id": "ig-funny-1",
+      "platform": "Instagram",
+      "tone": "funny",
+      "hook": "POV: you just found out {product} exists and your {pain} era is over. {emoji}",
+      "caption": "I am begging {audience} to stop doing this the hard way. {Product} gives you {benefit} in the time it takes to microwave a burrito. That's the whole ad. {emoji}",
+      "cta": "Link in bio before I raise the price out of spite.",
+      "hashtags": ["#{ProductTag}", "#SmallBusinessCheck", "#RelatableContent"],
+      "first_comment": "Tag someone who needs to see this instead of me DMing them for the third time."
+    },
+    {
+      "id": "ig-professional-1",
+      "platform": "Instagram",
+      "tone": "professional",
+      "hook": "For {audience} ready to stop losing time to {pain}.",
+      "caption": "{Product} was built around one idea: {benefit} shouldn't require a full course to get. Clear setup, real templates, no fluff. If your current process is a folder of half-finished docs, this replaces it. {emoji}",
+      "cta": "Full details are in the link in bio.",
+      "hashtags": ["#{ProductTag}", "#SmallBusinessTools", "#WorkSmarter"],
+      "first_comment": "Questions on fit for your business? Ask below, I read every comment."
+    },
+    {
+      "id": "ig-bold-2",
+      "platform": "Instagram",
+      "tone": "bold",
+      "hook": "This is your sign to fix {pain} before next week. {emoji}",
+      "caption": "{Product} isn't another thing to learn, it's the thing that replaces the six other things you were doing wrong. {benefit}, starting now. {emoji}",
+      "cta": "Grab it today, link in bio, price goes up Friday.",
+      "hashtags": ["#{ProductTag}", "#HustleSmart", "#SmallBusinessOwner"],
+      "first_comment": "Real talk: I'm raising the price once this hits 100 sales. Get in now."
+    },
+    {
+      "id": "li-professional-1",
+      "platform": "LinkedIn",
+      "tone": "professional",
+      "hook": "I spent three weekends fixing a problem most of {audience} still have: {pain}.",
+      "caption": "Every team I've worked with hits the same wall: {pain} eats the hours that should go to actual strategy. So I built {product}. It's not a framework or a philosophy — it's a working tool that hands {audience} {benefit} on day one. No onboarding call required.",
+      "cta": "If this sounds like your team, the details are in the comments.",
+      "hashtags": ["#{ProductTag}", "#Productivity", "#SmallBusiness", "#Operations"],
+      "first_comment": "Link + pricing here for anyone who wants to skip the DM: [link]"
+    },
+    {
+      "id": "li-friendly-1",
+      "platform": "LinkedIn",
+      "tone": "friendly",
+      "hook": "A quick story about {pain}, and the tool I built to end it.",
+      "caption": "Last quarter, {pain} cost our team more hours than I want to admit. I looked for a tool, found nothing that fit, and built {product} instead. It gives {audience} {benefit} without a steep learning curve. Sharing it here in case it helps your team too.",
+      "cta": "Happy to walk anyone through it — comment or DM.",
+      "hashtags": ["#{ProductTag}", "#TeamProductivity", "#SmallBusinessTools"],
+      "first_comment": "Link is below for anyone who wants to try it this week."
+    },
+    {
+      "id": "li-bold-1",
+      "platform": "LinkedIn",
+      "tone": "bold",
+      "hook": "{pain} is a solved problem. Most teams just haven't solved it yet.",
+      "caption": "I'm not interested in another productivity philosophy. I built {product} to remove {pain} completely, not manage it. The result: {audience} get {benefit} instead of another workaround. This is the tool I wish existed two years ago.",
+      "cta": "Details and access are in the comments below.",
+      "hashtags": ["#{ProductTag}", "#Leadership", "#Efficiency"],
+      "first_comment": "For anyone asking for the link before the algorithm buries this: here."
+    },
+    {
+      "id": "li-funny-1",
+      "platform": "LinkedIn",
+      "tone": "funny",
+      "hook": "Confession: I built {product} because I was too lazy to keep doing {pain} manually.",
+      "caption": "LinkedIn loves a founder story about grit. Mine is: {pain} was annoying, so I fixed it. {Product} now gives {audience} {benefit}, and I get to stop answering the same question in every meeting. Efficient for everyone involved.",
+      "cta": "Comment below if you want the link, no cold DMs necessary.",
+      "hashtags": ["#{ProductTag}", "#FounderLife", "#Productivity"],
+      "first_comment": "Yes, it really does replace the spreadsheet. I tested it on myself first."
+    },
+    {
+      "id": "li-professional-2",
+      "platform": "LinkedIn",
+      "tone": "professional",
+      "hook": "{audience} lose an average of hours a week to {pain}. Here's a direct fix.",
+      "caption": "{Product} was built to remove the manual part of {pain}, not add another dashboard to check. It ships with real templates, not a blank canvas, so {audience} get {benefit} from the first use.",
+      "cta": "Full breakdown and pricing in the comments.",
+      "hashtags": ["#{ProductTag}", "#BusinessTools", "#Operations", "#SmallBusiness"],
+      "first_comment": "Pricing and a walkthrough video are linked in the first reply."
+    },
+    {
+      "id": "tt-funny-1",
+      "platform": "TikTok",
+      "tone": "funny",
+      "hook": "Nobody: ... Me at 1am fixing {pain} with duct tape and hope: {emoji}",
+      "caption": "So I got tired of {pain} and built {product} instead of sleeping. Now {audience} get {benefit} and I get to act like I planned this all along. {emoji}",
+      "cta": "Comment \"LINK\" and I'll send it, or it's in my bio.",
+      "hashtags": ["#fyp", "#{ProductTag}", "#SmallBusinessTok", "#SoftwareTok"],
+      "first_comment": "Comment LINK and I will personally send it to you, no bots."
+    },
+    {
+      "id": "tt-bold-1",
+      "platform": "TikTok",
+      "tone": "bold",
+      "hook": "If you're still dealing with {pain} in 2026, watch this. {emoji}",
+      "caption": "{Product} exists so {audience} stop losing time to {pain}. This is not a tip. This is the actual fix. {benefit}, starting today. {emoji}",
+      "cta": "Link in bio, don't wait on this one.",
+      "hashtags": ["#fyp", "#{ProductTag}", "#SmallBusinessOwner", "#BuildInPublic"],
+      "first_comment": "Link's in my bio, I'm not gatekeeping this one."
+    },
+    {
+      "id": "tt-friendly-1",
+      "platform": "TikTok",
+      "tone": "friendly",
+      "hook": "POV: someone finally explains how to fix {pain} in under 60 seconds. {emoji}",
+      "caption": "I made {product} for anyone who's tired of {pain} and just wants {benefit} without a whole course. It's simple. It works. That's it. {emoji}",
+      "cta": "Save this and grab it from my bio!",
+      "hashtags": ["#fyp", "#{ProductTag}", "#SmallBusinessTips", "#CreatorEconomy"],
+      "first_comment": "Comment your biggest struggle with this and I'll reply with a tip."
+    },
+    {
+      "id": "tt-professional-1",
+      "platform": "TikTok",
+      "tone": "professional",
+      "hook": "The real reason {audience} struggle with {pain}, explained fast.",
+      "caption": "Most people treat {pain} like a discipline issue. It's a systems issue. {Product} fixes the system, so you get {benefit} without changing your whole workflow. {emoji}",
+      "cta": "Full version linked in my bio.",
+      "hashtags": ["#fyp", "#{ProductTag}", "#SmallBusinessTok"],
+      "first_comment": "Link's in bio if you want to see the full walkthrough."
+    },
+    {
+      "id": "tt-bold-2",
+      "platform": "TikTok",
+      "tone": "bold",
+      "hook": "Delete every app that's supposed to fix {pain} and hasn't. Try this instead. {emoji}",
+      "caption": "{Product} is the version I wish I'd found first. No fluff, no 45-minute tutorial. {benefit} for {audience}, today. {emoji}",
+      "cta": "It's in my bio, go now before you forget.",
+      "hashtags": ["#fyp", "#{ProductTag}", "#SmallBusinessOwner", "#ProductivityHack"],
+      "first_comment": "Bio link. Go. I'll wait."
+    }
+  ]
+}
