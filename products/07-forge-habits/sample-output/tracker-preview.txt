@@ -1,0 +1,46 @@
+ForgeHabits — what the Streamlit tracker looks like
+====================================================
+(Rendered from the example state in habits_state-example.json, day 2026-08-30)
+
+  ForgeHabits
+  Local tracker. No account, no API key, no data leaves this machine.
+
+  ┌─────────────┬───────────────────────┬──────────────────────┐
+  │  Total XP   │        Level          │   XP to next level   │
+  │    931      │  5 — Disciplined      │         69            │
+  └─────────────┴───────────────────────┴──────────────────────┘
+
+  Today — 2026-08-30
+  ─────────────────────────────────────────────────────────────
+  [x]  Cold Shower            Body / Hard     · streak 3
+  [x]  Meal Prep Sunday       Chore / Hard    · streak 3
+  [x]  Meditate 10 Min        Mind / Easy     · streak 3
+  [x]  Morning Run            Body / Medium   · streak 2
+  [x]  No Phone After 10pm    Mind / Medium   · streak 1
+  [x]  Read 20 Pages          Mind / Easy     · streak 3
+  [x]  Wash Dishes Same Night Chore / Easy    · streak 2
+
+  Streaks
+  ─────────────────────────────────────────────────────────────
+  Cold Shower            — current streak 3, longest 3
+  Meal Prep Sunday       — current streak 3, longest 3
+  Meditate 10 Min        — current streak 3, longest 3
+  Read 20 Pages          — current streak 3, longest 3
+  Wash Dishes Same Night — current streak 2, longest 3
+  Morning Run            — current streak 2, longest 3
+  No Phone After 10pm    — current streak 1, longest 3
+
+  Badges
+  ─────────────────────────────────────────────────────────────
+  First Rep, Three Days In
+
+  State file: habits_state.json
+  A ForgeKit product by Orynix Technologies
+
+Notes:
+- Checking a box writes to habits_state.json immediately (real file I/O,
+  no simulated state, no database).
+- Unchecking a box reverses the XP and recomputes the streak from history
+  — it does not just zero things out.
+- This example was produced by running the tracker's actual toggle logic
+  across 14 simulated days, not hand-typed numbers.

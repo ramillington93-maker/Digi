@@ -132,6 +132,9 @@ def fill_slots(template: str, product: str, platform: str, tone: str, rng: rando
     )
     # tidy any double spaces left by an empty emoji slot
     text = re.sub(r"\s{2,}", " ", text).strip()
+    # a {pain} slot at the very start of a sentence can land lowercase; fix it
+    if text and text[0].islower():
+        text = text[0].upper() + text[1:]
     return text
 
 
@@ -193,18 +196,32 @@ def generate(product: str, platform: str, tone: str, styles: list[dict] | None =
     first_comment = _dedupe_keep_order(first_comments, 1)
 
     # Pad out to the promised counts if the matched pool ran short
-    # (only happens for very short/odd product descriptions).
-    while len(captions) < 10:
-        captions.append(fill_slots(rng.choice(pool)["caption"], product, platform, tone, rng, audience))
-        captions = _dedupe_keep_order(captions, 10) if len(captions) >= 10 else captions
-    while len(hooks) < 10:
-        hooks.append(fill_slots(rng.choice(pool)["hook"], product, platform, tone, rng, audience))
+    # (only happens for very short/odd product descriptions). Cap attempts
+    # so an exhausted word bank can't loop forever.
+    attempts = 0
+    while len(captions) < 10 and attempts < 200:
+        captions = _dedupe_keep_order(
+            captions + [fill_slots(rng.choice(pool)["caption"], product, platform, tone, rng, audience)], 10
+        )
+        attempts += 1
+    attempts = 0
+    while len(hooks) < 10 and attempts < 200:
+        hooks = _dedupe_keep_order(
+            hooks + [fill_slots(rng.choice(pool)["hook"], product, platform, tone, rng, audience)], 10
+        )
+        attempts += 1
     while len(ctas) < 3:
-        ctas.append(GENERIC_CTAS[platform])
-        ctas = _dedupe_keep_order(ctas, 3)
-    while len(hashtags) < 15:
-        hashtags.append(rng.choice(GENERIC_HASHTAGS[platform]))
-        hashtags = _dedupe_keep_order(hashtags, 15)
+        ctas = _dedupe_keep_order(ctas + [GENERIC_CTAS[platform]], 3)
+        if len(ctas) < 3:
+            break  # only one generic CTA per platform; avoid an infinite loop
+    attempts = 0
+    while len(hashtags) < 15 and attempts < 50:
+        hashtags = _dedupe_keep_order(hashtags + [rng.choice(GENERIC_HASHTAGS[platform])], 15)
+        attempts += 1
+    filler_n = 1
+    while len(hashtags) < 15:  # last resort: numbered platform tag, always unique
+        hashtags = _dedupe_keep_order(hashtags + [f"#{platform.replace(' ', '')}Tip{filler_n}"], 15)
+        filler_n += 1
     if not first_comment:
         first_comment = [GENERIC_FIRST_COMMENT[platform]]
 
