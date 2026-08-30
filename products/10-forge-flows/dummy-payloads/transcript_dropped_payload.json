@@ -1,0 +1,9 @@
+{
+  "event": "file_added",
+  "path": "/REPLACE/WITH/WATCHED_FOLDER/inbox/team-standup-2026-08-30.txt",
+  "fileName": "team-standup-2026-08-30.txt",
+  "fileSizeBytes": 4821,
+  "mimeType": "text/plain",
+  "detectedAt": "2026-08-30T09:00:05Z",
+  "sampleContent": "00:00 Sam: Deploy went out last night, no errors so far.\n00:14 Priya: Checkout flow still slow on mobile, I'll profile it today.\n00:39 Sam: Let's ship the pricing page copy by Friday.\n01:02 Priya: I'll write the summary for the client call at 3pm.\n01:20 Sam: Action item - Priya to send updated timeline by EOD."
+}

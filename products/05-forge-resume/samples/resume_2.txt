@@ -1,0 +1,31 @@
+Marcus Chen
+Software Engineer
+marcus.chen@email.com | 555-908-2231 | Austin, TX | github.com/mchen-dev
+
+SUMMARY
+Backend-leaning software engineer with 5 years building web services in
+Python and Node.js. Comfortable owning a service from design through
+production.
+
+EXPERIENCE
+
+Software Engineer — Redline Logistics, Austin, TX (2021 - Present)
+- Built REST APIs in Python and Flask for the internal shipment tracking
+  system.
+- Worked on a PostgreSQL database schema used by three internal teams.
+- Helped migrate a monolith service into smaller Docker containers.
+- Wrote unit tests using pytest and fixed bugs reported by QA.
+- Used Git for version control and reviewed teammates' pull requests.
+- Set up basic CI checks so tests run before merge.
+
+Junior Developer — Pinegate Software, Austin, TX (2019 - 2021)
+- Did front-end fixes in a React app for an internal admin dashboard.
+- Assisted senior engineers with debugging production issues.
+- Wrote SQL queries to pull reports for the operations team.
+- Helped document API endpoints for other developers.
+
+EDUCATION
+B.S. Computer Science, University of Texas at Austin, 2019
+
+SKILLS
+Python, Flask, PostgreSQL, Docker, Git, pytest, React, SQL, REST APIs.

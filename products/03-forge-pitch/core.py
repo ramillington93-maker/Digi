@@ -262,15 +262,21 @@ def _rate_number(profile: Profile) -> float | None:
     return None
 
 
+def _short_title(job: JobSignals, max_len: int) -> str:
+    title = job.title_guess.strip()
+    if len(title) <= max_len:
+        return title
+    return title[: max_len - 1].rsplit(" ", 1)[0] + "..."
+
+
 def build_subject_lines(job: JobSignals, profile: Profile) -> list[str]:
-    niche_word = job.niche.split(" & ")[0].split(" ")[0].capitalize()
+    first_name = profile.name.split()[0] if profile.name else "Quick"
     lines = [
-        f"Re: {job.title_guess[:60]} -- a quick fit check",
-        f"{profile.name.split()[0] if profile.name else 'Quick'} note on your {niche_word.lower()} post",
-        f"Proposal: {job.title_guess[:50]} (with samples)",
+        f"Re: {_short_title(job, 45)} -- a quick fit check",
+        f"{first_name}'s note on your {job.niche} post",
+        f"Proposal: {_short_title(job, 40)} (with samples)",
     ]
-    # Keep them distinct and short.
-    return [ln[:78] for ln in lines]
+    return lines
 
 
 def build_price_anchors(job: JobSignals, profile: Profile) -> list[dict]:
@@ -332,8 +338,10 @@ def build_ps_line(job: JobSignals, profile: Profile) -> str:
 
 def _opening_hook(job: JobSignals, profile: Profile, shared: list[str]) -> str:
     skill_phrase = shared[0] if shared else job.niche
+    first_name = profile.name.split()[0] if profile.name else None
+    lane_owner = f"{first_name}'s" if first_name else "my"
     return (
-        f'You wrote: "{job.hook_sentence}" -- that\'s squarely {profile.name.split()[0] if profile.name else "my"} '
+        f'You wrote: "{job.hook_sentence}" -- that\'s squarely {lane_owner} '
         f"lane. I work in {skill_phrase} day to day, and this reads like a project I could start on "
         f"this week, not next month."
     )
