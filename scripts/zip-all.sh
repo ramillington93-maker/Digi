@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-# ForgeKit packaging script — builds one .zip per product plus a mega-bundle zip.
+# ForgeKit packaging script — builds one .zip per product plus forgekit-complete.zip.
 # Usage: ./scripts/zip-all.sh
-# Output: dist/<slug>.zip for each product, dist/forgekit-mega-bundle.zip with everything.
+# Output: dist/<slug>.zip for each product, dist/forgekit-complete.zip with everything.
+# Excludes .venv/ and __pycache__/ (and other build junk) from every zip.
 
 set -euo pipefail
 
@@ -26,18 +27,21 @@ for product_path in "$PRODUCTS_DIR"/*/; do
 done
 
 echo ""
-echo "Building mega-bundle (all products + packaging docs)..."
-MEGA_STAGE="$DIST_DIR/.mega-stage"
-rm -rf "$MEGA_STAGE"
-mkdir -p "$MEGA_STAGE/ForgeKit-Mega-Bundle"
-cp -R "$PRODUCTS_DIR" "$MEGA_STAGE/ForgeKit-Mega-Bundle/products"
-cp -R "$ROOT_DIR/packaging" "$MEGA_STAGE/ForgeKit-Mega-Bundle/packaging"
-cp -R "$ROOT_DIR/brand" "$MEGA_STAGE/ForgeKit-Mega-Bundle/brand"
+echo "Building forgekit-complete.zip (all products + packaging docs)..."
+COMPLETE_STAGE="$DIST_DIR/.complete-stage"
+rm -rf "$COMPLETE_STAGE"
+mkdir -p "$COMPLETE_STAGE/ForgeKit-Complete"
+cp -R "$PRODUCTS_DIR" "$COMPLETE_STAGE/ForgeKit-Complete/products"
+cp -R "$ROOT_DIR/packaging" "$COMPLETE_STAGE/ForgeKit-Complete/packaging"
+cp -R "$ROOT_DIR/brand" "$COMPLETE_STAGE/ForgeKit-Complete/brand"
 
-(cd "$MEGA_STAGE" && zip -rq "$DIST_DIR/forgekit-mega-bundle.zip" "ForgeKit-Mega-Bundle" \
+# Drop any venvs/pycache that snuck into a product folder before zipping.
+find "$COMPLETE_STAGE/ForgeKit-Complete" -type d \( -name "__pycache__" -o -name ".venv" \) -exec rm -rf {} + 2>/dev/null || true
+
+(cd "$COMPLETE_STAGE" && zip -rq "$DIST_DIR/forgekit-complete.zip" "ForgeKit-Complete" \
   -x "*.DS_Store" -x "__pycache__/*" -x "*.pyc" -x ".venv/*")
 
-rm -rf "$MEGA_STAGE"
+rm -rf "$COMPLETE_STAGE"
 
 echo ""
 echo "Done. Files ready for Gumroad upload:"

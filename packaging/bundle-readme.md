@@ -1,13 +1,13 @@
-# ForgeKit Mega Bundle
+# You got the whole ForgeKit
 
-A ForgeKit product line by **Orynix Technologies**. Ship today. Cash tomorrow.
+All 10 products. One purchase. A ForgeKit product line by **Orynix Technologies**. Ship today. Cash tomorrow.
 
 Thanks for buying the bundle. Here's every tool, what it solves, and where to start.
 
 ## What's in this folder
 
 ```
-ForgeKit-Mega-Bundle/
+ForgeKit-Complete/
 ├── products/
 │   ├── 01-forge-notes/       Meeting transcript -> summary, decisions, action items
 │   ├── 02-forge-hustle/      Notion side-hustle tracker (template pack)

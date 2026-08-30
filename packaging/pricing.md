@@ -20,7 +20,7 @@ Publisher: Orynix Technologies. All prices USD, one-time purchase, Gumroad stand
 
 ## Mega bundle
 
-**ForgeKit Mega Bundle — $49.** All 10 products, one zip (`dist/forgekit-mega-bundle.zip`), one license.
+**ForgeKit Mega Bundle — $49.** All 10 products, one zip (`dist/forgekit-complete.zip`), one license.
 
 Math for the listing: "$209 of tools for $49 — that's less than the price of any 3 products bought alone." Don't inflate this — $209 is the literal sum of the table above, so the claim holds up if a buyer checks.
 

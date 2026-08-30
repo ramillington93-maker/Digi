@@ -265,4 +265,4 @@ Bought separately, these ten products add up to $209. The bundle is $49 — less
 
 **Who it's not for:** Anyone who only needs one specific tool — buy that one standalone, it's cheaper up front.
 
-**Setup:** Unzip `forgekit-mega-bundle.zip`. Each product folder is self-contained with its own README. Start with whichever one solves today's problem.
+**Setup:** Unzip `forgekit-complete.zip`. Each product folder is self-contained with its own README. Start with whichever one solves today's problem.
